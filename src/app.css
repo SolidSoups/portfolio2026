@@ -1,7 +1,14 @@
 @import 'tailwindcss';
 
+
+
 @theme {
     --shadow-paper:
         -10px 0 16px -10px rgb(0 0 0 / 0.1),
         10px 0 16px -10px rgb(0 0 0 / 0.1);
+    --color-paper: #faf7f0;
+
+    /* Literata is very nice, but newsreader is thin and thats also cool */
+    --font-serif: 'Literata Variable', ui-serif, Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
