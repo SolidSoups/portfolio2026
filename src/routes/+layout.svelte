@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from '$app/state';
+    import { beforeNavigate, afterNavigate, onNavigate }  from '$app/navigation';
     import '../app.css';
     import '@fontsource-variable/source-serif-4';
     import '@fontsource-variable/literata';
@@ -12,20 +14,52 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
+
+    const links = [
+        { href: '/', label: 'Home' },
+        { href: '/projects', label: 'Projects' },
+        { href: '/about', label: 'About' },
+    ];
+
+    const isCurrent = (href: string) => 
+        href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+
+    // Remove smooth scrolling when switching pages
+    beforeNavigate(() => {
+        document.documentElement.style.scrollBehavior = 'auto';
+    });
+    afterNavigate(() => {
+        document.documentElement.style.scrollBehavior = '';
+    });
+
+    // Add smooth animation transition between pages
+    onNavigate((navigation) => {
+        if(!document.startViewTransition) return;
+
+        return new Promise((resolve) => {
+            document.startViewTransition(async () => { 
+                resolve();
+                await navigation.complete;
+            });
+        });
+    });
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class="grid grid-cols-[minmax(0,1fr)_minmax(0,48rem)_minmax(0,1fr)] bg-paper">
+<main class="grid grid-cols-[minmax(0,1.4fr)_minmax(0,48rem)_minmax(0,1fr)] bg-paper">
     <!-- TODO: We'll need to find a better font for this -->
     <aside class="col-start-1 hidden w-64 justify-self-end pt-55 pr-16 xl:block font-serif">
         <h1 class="text-4xl pb-8">Elias Brown</h1>
         <nav class="flex flex-col gap-2">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="about">About</a>
+            {#each links as link}
+                <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined} 
+                    class="mx-1 w-fit px-0.5 aria-[current=page]:highlight">
+                    {link.label}
+                </a>
+            {/each}
 
             <hr class="my-6 border-stone-300" />
 
@@ -39,8 +73,15 @@
 
     <!-- font-serif is a great contender -->
     <!-- font-mono is a great contender for code -->
-    <div class="col-start-2 min-h-screen px-12 pt-32 pb-16 lg:translate-x-12 font-serif">
+
+    <!-- The main content layout -->
+    <div style="view-transition-name: content" class="col-start-2 flex min-h-screen flex-col px-12 pt-32 pb-16 lg:translate-x-12 font-serif"> 
         {@render children()}
+
+        <footer class="mt-auto pt-16 text-sm text-stone-500">
+            © {new Date().getFullYear()} Elias Brown
+        </footer>
     </div>
+
 </main>
 

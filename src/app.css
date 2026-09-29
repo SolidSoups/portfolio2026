@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+html {
+    scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior:  smooth;
+    }
+}
 
 
 @theme {
@@ -11,4 +20,32 @@
     /* Literata is very nice, but newsreader is thin and thats also cool */
     --font-serif: 'Literata Variable', ui-serif, Georgia, serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+@utility highlight {
+    background: linear-gradient(transparent 45%, var(--color-yellow-200) 45%);
+}
+
+::view-transition-old(content){
+    animation: 150ms ease-in both fade-out;
+}
+
+::view-transition-new(content) {
+    animation: 300ms ease-out both rise-in;
+}
+
+@keyframes fade-out {
+    to { opacity: 0; }
+}
+
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(15px); }
+}
+
+@media (preferes-reduces-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none;
+    }
 }
