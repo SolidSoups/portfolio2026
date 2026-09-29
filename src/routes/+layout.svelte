@@ -29,7 +29,7 @@
         document.documentElement.style.scrollBehavior = 'auto';
     });
     afterNavigate(() => {
-        document.documentElement.style.scrollBehavior = '';
+        document.documentElement.style.scrollBehavior = 'auto';
     });
 
     // Add smooth animation transition between pages
@@ -75,10 +75,12 @@
     <!-- font-mono is a great contender for code -->
 
     <!-- The main content layout -->
-    <div style="view-transition-name: content" class="col-start-2 flex min-h-screen flex-col px-12 pt-32 pb-16 lg:translate-x-12 font-serif"> 
-        {@render children()}
+    <div class="col-start-2 flex min-h-screen flex-col px-12 pt-32 pb-16 lg:translate-x-12 font-serif"> 
+        <div style="view-transition-name: content">
+            {@render children()}
+        </div>
 
-        <footer class="mt-auto pt-16 text-sm text-stone-500">
+        <footer style="view-transition-name: footer" class="mt-auto pt-16 text-sm text-stone-500">
             © {new Date().getFullYear()} Elias Brown
         </footer>
     </div>

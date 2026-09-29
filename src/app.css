@@ -49,3 +49,19 @@ html {
         animation: none;
     }
 }
+
+::view-transition-group(footer) {
+    animation: none;
+}
+
+::view-transition-old(footer) {
+    animation: 300ms ease-in both fade-out;
+}
+
+::view-transition-new(footer) {
+    animation: 300ms ease-out both fade-in;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+}
