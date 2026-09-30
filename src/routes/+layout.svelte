@@ -49,7 +49,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class="grid grid-cols-[minmax(0,1.4fr)_minmax(0,48rem)_minmax(0,1fr)] bg-paper">
+<main class="grid grid-cols-[minmax(0,1.4fr)_minmax(0,72rem)_minmax(0,1fr)] bg-paper">
     <!-- TODO: We'll need to find a better font for this -->
     <aside class="col-start-1 hidden w-64 justify-self-end pt-55 pr-16 xl:block font-serif">
         <h1 class="text-4xl pb-8">Elias Brown</h1>
@@ -61,10 +61,10 @@
                 </a>
             {/each}
 
-            <hr class="my-6 border-stone-300" />
+            <hr class="my-6 border-stone-400" />
 
-            <address class="flex flex-col gap-1 text-sm not-italic">
-                <a href="mailto:eli.marc.brown@gmail.com">eli.marc.brown@gmail.com</a>
+            <address class="flex flex-col gap-2 text-sm not-italic">
+                <a href="mailto:eli.marc.brown@gmail.com">Eli.marc.brown@gmail.com</a>
                 <a href="https://github.com/SolidSoups" target="_blank">GitHub</a>
                 <a href="https://www.linkedin.com/in/elias-brown-184b86258/" target="_blank">LinkedIn</a>
             </address>

@@ -5,10 +5,10 @@
     } = $props();
 </script>
 
-<div class="grid grid-cols-2 gap-8">
-    <div class="aspect-[4/3] bg-stone-300 rounded-xs"></div>
+<div class="flex flex-col gap-4 pb-15">
+    <div class="aspect-square bg-stone-300 rounded-xs"></div>
 
-    <div class="flex flex-col gap-3 pl-4">
+    <div class="flex flex-col gap-2">
         <h2 class="text-2xl font-bold">{projectTitle}</h2>
         <p>{projectDesc}</p>
     </div>

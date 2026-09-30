@@ -11,7 +11,7 @@
     </span>
 </h2>
 <br/>
-<div class="flex flex-col gap-16 pt-15">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-15">
     <ProjectCard 
         projectTitle="My internship at BitFire"
         projectDesc="Unreal tools and swarming. ;)"
