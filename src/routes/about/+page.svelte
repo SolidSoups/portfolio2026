@@ -1,3 +1,4 @@
+<h1 class="text-4xl pb-6">About</h1>
 <div class="grid grid-cols-[12rem_1fr] items-start gap-20">
     <div class="mb-8 ml-auto size-60 bg-stone-300"></div>
     <p class="pt-2">Argumenten emot uppfattningen att brevet skrivits av Jakob inbegriper att det är skrivet på driven grekiska,[1] något många menar att en enkel och outbildad palestinier med arameiska som modersmål knappast vore i stånd till, om än vissa anser det inte vara uteslutet.[35] Det faktum att grekiskan förekom i Palestina innebär inte, enligt Werner Kümmel, att en arameisktalande jude i vanliga fall kunde skriva på flytande grekiska.[36] </p>

@@ -24,7 +24,4 @@
         projectTitle="Sushi 2 Go"
         projectDesc="A 2-week game project combining the love of sushi with endless running."
     />
-    <ProjectCard
-        projectTitle="Something Cool"
-    />
 </div>
